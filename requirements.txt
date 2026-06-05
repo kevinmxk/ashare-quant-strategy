@@ -1,0 +1,7 @@
+pandas>=1.5
+numpy>=1.23
+PyYAML>=6.0
+
+# Optional live data providers. Install the one you actually use.
+# akshare
+# tushare

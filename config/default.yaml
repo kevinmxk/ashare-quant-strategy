@@ -1,0 +1,87 @@
+profile:
+  investor_type: "small_account_aggressive"
+  account_equity: 80000
+  peak_equity: 80000
+  max_holding_days: 20
+  manual_confirmation: true
+
+universe:
+  allow_mainboard_only: true
+  exclude_prefixes: ["300", "301", "688", "689", "8", "4"]
+  min_history_days: 80
+  min_avg_amount_20d: 100000000
+  min_price: 3.0
+
+market:
+  indexes:
+    hs300: "000300"
+    csi500: "000905"
+    csi1000: "000852"
+  strong_requires_at_least: 2
+  weak_requires_at_least: 2
+
+risk:
+  max_account_drawdown: 0.20
+  risk_per_trade: 0.025
+  max_single_stock_weight: 0.25
+  max_positions: 3
+  max_total_stock_weight: 0.80
+  min_cash_weight: 0.20
+  hard_stop_loss_pct: 0.08
+  max_stop_distance_pct: 0.10
+  reduce_new_position_at_drawdown: 0.05
+  half_exposure_at_drawdown: 0.10
+  stop_stock_trading_at_drawdown: 0.15
+  full_stop_at_drawdown: 0.20
+
+signals:
+  ma_fast: 10
+  ma_mid: 20
+  ma_slow: 60
+  atr_window: 14
+  breakout_window: 20
+  volume_window: 20
+  breakout_volume_ratio: 1.3
+  max_5d_chase_return: 0.25
+  pullback_near_ma_pct: 0.035
+  pullback_confirm_volume_ratio: 1.05
+  take_profit_r1_pct: 0.10
+  take_profit_r2_pct: 0.18
+  trailing_atr_multiple: 2.0
+  stale_position_days: 8
+
+quality_filter:
+  enabled: true
+  mode: "optional_csv"
+  min_roe: 0.03
+  max_debt_ratio: 0.75
+  max_pe_ttm: 120
+  min_market_cap: 3000000000
+
+first_board_pullback:
+  enabled: true
+  max_weight: 0.15
+  lookback_no_limit_up_days: 10
+  min_days_after_board: 1
+  max_days_after_board: 6
+  min_pullback_pct: 0.03
+  max_pullback_pct: 0.12
+  max_break_board_low_pct: 0.01
+  require_volume_shrink: true
+
+etf_rotation:
+  enabled: true
+  max_total_weight: 0.40
+  top_n: 2
+  require_above_ma20: true
+  candidates:
+    "510300": "沪深300ETF"
+    "510500": "中证500ETF"
+    "512100": "中证1000ETF"
+    "512880": "证券ETF"
+    "512480": "半导体ETF"
+    "512660": "军工ETF"
+    "159928": "消费ETF"
+    "512010": "医药ETF"
+    "518880": "黄金ETF"
+    "510880": "红利ETF"
